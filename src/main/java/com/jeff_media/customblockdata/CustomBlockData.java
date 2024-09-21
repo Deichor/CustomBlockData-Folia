@@ -22,6 +22,7 @@
 
 package com.jeff_media.customblockdata;
 
+import com.github.Anon8281.universalScheduler.UniversalScheduler;
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -224,7 +225,7 @@ public class CustomBlockData implements PersistentDataContainer {
             return;
 
         DIRTY_BLOCKS.add(blockEntry);
-        Bukkit.getScheduler().runTask(plugin, () -> DIRTY_BLOCKS.remove(blockEntry));
+        UniversalScheduler.getScheduler(plugin).runTask(() -> DIRTY_BLOCKS.remove(blockEntry));
     }
 
     /**
